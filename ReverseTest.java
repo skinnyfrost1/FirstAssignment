@@ -11,7 +11,7 @@ public class ReverseTest {
 
     @Test
     public void testReverse1() {
-        String[] array = {"superman", "was", "born", "on", "the", "Keypton", "and ", "his", "name","was","Kal-El"};
+        String[] array = {"Superman", "was", "born", "on", "the", "Keypton", "and", "his", "name","was","Kal-El"};
         String[] expected = {"Kal-El", "was", "name", "his", "and", "Keypton", "the", "on", "born","was","Superman"};
         String[] actual = StringArrayUtils.reverse(array);
         Assert.assertEquals(expected, actual);
