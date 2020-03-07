@@ -1,6 +1,6 @@
-/**
-* Created by Yang on 1/23/20.
-*/
+    /**
+    * Created by Yang on 1/23/20.
+    */
 public class StringArrayUtils {
     /**
      * @param array array of String objects
@@ -189,27 +189,34 @@ public class StringArrayUtils {
      * @return array of Strings with each consecutive duplicate occurrence concatenated as a single string in an array of Strings
      */ // TODO
     public static String[] packConsecutiveDuplicates(String[] array) {
-        if (array == null || array.length == 0) {
-            return array;
-        }
-        StringBuilder sb = new StringBuilder();
-        int j = 0;
-        for (int i = 0; i < array.length; i++) {
-            while (i < array.length - 1 && array[i] == array[i + 1]) {
-                sb.append(array[i]);
-                i++;
+        if (array.length ==1)
+         return array;
+       String temp="";
+        int numOfPackages=0;
+        for (int i =0;i<array.length;i++){
+            if(!array[i].equals(temp)){
+                temp=array[i];
+                numOfPackages++;
             }
-            sb.append(array[i]);
-            array[j++] = sb.toString();
-            sb.delete(0, sb.length());
-        } 
-        String[] res = new String[j];
-        for (int i = 0 ; i < j; i++) {
-            res[i] = array[i];
         }
-        return res;
+        System.out.println("numOfPackages: " + numOfPackages);
+        
+        String [] strs = new String[numOfPackages];
+        StringBuilder sb = new StringBuilder("");
+        temp = array[0];
+        int j = 0;
+        for(int i = 0; i<array.length; i++){
+            
+            if(!array[i].equals(temp)){
+                strs[j]=sb.toString();
+                j++;
+                sb = new StringBuilder("");
+                temp = array[i];
+            }
+            sb.append(temp);
+        }
+        strs[j]= sb.toString();
+        return strs;
     }
-    
-
 
 }
